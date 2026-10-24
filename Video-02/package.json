@@ -1,0 +1,22 @@
+{
+  "name": "video-02",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node script.js",
+    "chacha": "echo \"\u001b[36mRunning tests...\u001b[39m\" && node script.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "chalk": "^6.0.1",
+    "one-liner-joke": "^1.2.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
