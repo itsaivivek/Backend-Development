@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css" rel="stylesheet" />
+
+
+</head>
+
+<body class="bg-zinc-800 text-white">
+    <form action="/create" method="post" class="max-w-sm mx-auto my-10">
+    <div class="mb-5">
+        <label for="title" class="block mb-2.5 text-sm font-medium text-heading">Task Title</label>
+        <input type="text" id="title" name="title"
+            class="bg-neutral-secondary-medium text-zinc-900 border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
+            placeholder="Go to the store..." required />
+    </div>
+    <div class="mb-5">
+        <label for="description" class="block mb-2.5 text-sm font-medium text-heading">Task Description</label>
+        <textarea id="description" name="description"
+            class="bg-neutral-secondary-medium text-zinc-900 border resize-none border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
+            placeholder="I have to go to store and I need to buy milk and bread..." required></textarea>
+    </div>
+    <button type="submit"
+        class="text-white bg-sky-500 box-border border border-transparent hover:bg-sky-400 shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none active:scale-95">Submit</button>
+</form>
+
+<h1 class="text-3xl px-10 py-5 font-bold">Your tasks</h1>
+<div class="tasks px-10 flex gap-4 flex-wrap">
+    <% if (tasks.length>0) { %>
+        <% tasks.forEach(task => { %>
+            <a href="/task/<%= task %>">
+                <div class="task bg-zinc-700 shadow-xs min-w-72 w-fit px-5 py-2 active:scale-95">
+                    <h2 class="text-xl"><%= task %></h2>
+                    <p class="text-sky-500 text-sm mt-1">Click to read more...</p>
+                </div>
+            </a>
+      <%  }); %>
+        
+    <% } else {%>
+   
+        <h2 class="text-zinc-500 mx-auto">No tasks created.</h2>
+    <% }%>
+    
+</div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
+
+</body>
+
+</html>
