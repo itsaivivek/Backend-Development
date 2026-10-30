@@ -3,7 +3,7 @@ const app = express();
 const port = 3000;
 const path = require('path');
 const fs = require('fs');
-const { ifError } = require('assert');
+
 
 app.set('view engine', 'ejs');
 app.use(express.json());
@@ -30,6 +30,19 @@ app.get('/task/:taskname', (req, res) => {
   }
   )
 })
+
+app.get('/edit/:taskname', (req, res) => {
+  res.render('edit', {taskname: req.params.taskname})
+})
+
+app.post('/edit', (req, res) => {
+  fs.rename(`./tasks/${req.body.previousName}`, `./tasks/${toPascalCase(req.body.newName).split(' ').join('')}`, (err) => {
+    if(err) console.error(err)
+      res.redirect('/')
+    }
+)
+}
+)
 
 app.post('/create', (req, res) => {
   fs.writeFile(`./tasks/${toPascalCase(req.body.title.split(' ').join(''))}.txt`, req.body.description, (err) => {

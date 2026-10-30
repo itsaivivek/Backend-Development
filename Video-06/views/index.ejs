@@ -16,13 +16,13 @@
     <div class="mb-5">
         <label for="title" class="block mb-2.5 text-sm font-medium text-heading">Task Title</label>
         <input type="text" id="title" name="title"
-            class="bg-neutral-secondary-medium text-zinc-900 border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
+            class="text-black placeholder:text-zinc-600 border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
             placeholder="Go to the store..." required />
     </div>
     <div class="mb-5">
         <label for="description" class="block mb-2.5 text-sm font-medium text-heading">Task Description</label>
         <textarea id="description" name="description"
-            class="bg-neutral-secondary-medium text-zinc-900 border resize-none border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
+            class="text-black placeholder:text-zinc-600 border resize-none border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
             placeholder="I have to go to store and I need to buy milk and bread..." required></textarea>
     </div>
     <button type="submit"
@@ -36,7 +36,10 @@
             <a href="/task/<%= task %>">
                 <div class="task bg-zinc-700 shadow-xs min-w-72 w-fit px-5 py-2 active:scale-95">
                     <h2 class="text-xl"><%= task %></h2>
-                    <p class="text-sky-500 text-sm mt-1">Click to read more...</p>
+                    <div class="w-full flex justify-between mt-1">
+                        <p class="text-sky-500 text-sm">Click to read more...</p>
+                        <a href="/edit/<%= task %>" class="text-yellow-600 text-sm">Rename</a>
+                    </div>
                 </div>
             </a>
       <%  }); %>
