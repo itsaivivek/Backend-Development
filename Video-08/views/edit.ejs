@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+
+<body>
+    <div class="min-h-screen bg-zinc-800 text-white p-6 flex flex-col gap-6">
+        <div class="flex flex-col gap-6">
+            <h2 class="text-3xl">Edit User Details</h2>
+            <form class="w-full flex flex-col gap-2" action="/edit/<%= user._id %>" method="post">
+                <label for="username">New Username:</label>
+                <input class="outline-none border py-2 px-5 rounded-md border-zinc-600" type="text" name="username"
+                id="username" placeholder="Unchanged if left blank">
+                <label for="email">New email:</label>
+                <input class="outline-none border py-2 px-5 rounded-md border-zinc-600" type="email" name="email"
+                id="email" placeholder="Unchanged if left blank">
+                <label for="imageUrl">New Image URL:</label>
+                <input class="outline-none border py-2 px-5 rounded-md border-zinc-600" type="text" name="imageUrl"
+                    id="imageUrl" placeholder="Unchanged if left blank">
+                <input class="bg-yellow-600 px-5 py-2 rounded-md" type="submit" value="Edit User">
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
