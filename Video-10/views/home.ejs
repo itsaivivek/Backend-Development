@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Feed</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gray-100 font-sans antialiased text-gray-900 min-h-screen">
+
+    <!-- Navigation Bar -->
+    <nav class="bg-white border-b border-gray-100 sticky top-0 z-50">
+        <div class="max-w-3xl mx-auto px-4">
+            <div class="flex justify-between h-16 items-center">
+                <!-- Logo -->
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center text-white font-bold">T</div>
+                    <span class="text-xl font-bold tracking-tight text-gray-900">Tweeter</span>
+                </div>
+                <!-- Nav Links -->
+                <div class="flex items-center gap-6">
+                    <a href="#" class="text-sm font-semibold text-indigo-600">Home</a>
+                    <a href="/profile/<%= user._id %>" class="text-sm font-medium text-gray-600 hover:text-gray-900 transition">Profile</a>
+                    <a href="/logout" class="text-sm font-medium text-red-600 hover:text-red-700 transition">Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Layout -->
+    <main class="max-w-2xl mx-auto px-4 py-8 space-y-6">
+        
+        <!-- Create Post Container (Text Only) -->
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-4">
+            <form action="#" method="POST" class="space-y-3">
+                <div class="flex flex-col gap-2 items-start justify-center">
+                    <label for="post-text" class="mx-2">Create Post</label>
+                    <textarea id="post-text" name="content" rows="3" required
+                              placeholder="What's on your mind, <%= user.fullname.split(' ')[0] %>?" 
+                              class="w-full px-3 py-2 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 resize-none"></textarea>
+                </div>
+                <div class="flex justify-end">
+                    <button type="submit" 
+                            class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-5 rounded-xl transition duration-200 shadow-sm text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        Post
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Feed Section Header -->
+        <div class="border-b border-gray-200 pb-2">
+            <h2 class="text-xs font-bold text-gray-400 uppercase tracking-wider">Recent Feed</h2>
+        </div>
+
+        <!-- Feed Posts Stack -->
+        <div class="space-y-4">
+            
+            <!-- Post item 1 -->
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-5">
+                <div class="flex items-start gap-3">
+                    <img class="w-10 h-10 rounded-full object-cover" 
+                         src="https://unsplash.com" 
+                         alt="Sarah Jenkins">
+                    <div class="flex-1 min-w-0">
+                        <div class="flex items-center gap-1.5">
+                            <span class="text-sm font-bold text-gray-900 truncate">Sarah Jenkins</span>
+                            <span class="text-xs text-gray-400">&middot; 2h ago</span>
+                        </div>
+                        <p class="text-sm text-gray-700 mt-2 leading-relaxed">
+                            Just finished rebuilding our new application dashboard layouts using utility-first CSS configurations. Clean spacing systems honestly make all the difference!
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Post item 2 -->
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-5">
+                <div class="flex items-start gap-3">
+                    <img class="w-10 h-10 rounded-full object-cover" 
+                         src="https://unsplash.com" 
+                         alt="Marcus Chen">
+                    <div class="flex-1 min-w-0">
+                        <div class="flex items-center gap-1.5">
+                            <span class="text-sm font-bold text-gray-900 truncate">Marcus Chen</span>
+                            <span class="text-xs text-gray-400">&middot; 5h ago</span>
+                        </div>
+                        <p class="text-sm text-gray-700 mt-2 leading-relaxed">
+                            Spent the whole morning tracing a race condition hidden inside database connection pools. Turns out an unhandled rejection was leaking memory over time. Fixed now.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Post item 3 -->
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-5">
+                <div class="flex items-start gap-3">
+                    <img class="w-10 h-10 rounded-full object-cover" 
+                         src="https://unsplash.com" 
+                         alt="Elena Rostova">
+                    <div class="flex-1 min-w-0">
+                        <div class="flex items-center gap-1.5">
+                            <span class="text-sm font-bold text-gray-900 truncate">Elena Rostova</span>
+                            <span class="text-xs text-gray-400">&middot; 1d ago</span>
+                        </div>
+                        <p class="text-sm text-gray-700 mt-2 leading-relaxed">
+                            Reminder that good product design means reducing structural friction for your active users, not just designing visually appealing buttons. Less is always more.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+</body>
+</html>

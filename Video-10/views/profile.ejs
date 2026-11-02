@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <!-- Tailwind CSS CDN for production-less prototyping -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gray-100 font-sans antialiased text-gray-900 min-h-screen flex items-center justify-center p-4">
+
+    <!-- Profile Card Container -->
+    <div class="max-w-md w-full bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
+        
+        <!-- Header Background Banner -->
+        <div class="h-32 bg-gradient-to-r from-blue-500 to-indigo-600"></div>
+
+        <!-- Profile Body -->
+        <div class="relative px-6 pb-6 text-center">
+            
+            <!-- Avatar Overlay -->
+            <div class="absolute -top-16 left-1/2 transform -translate-x-1/2">
+                <img class="w-32 h-32 rounded-full border-4 border-white object-cover shadow-md" 
+                     src="https://unsplash.com" 
+                     alt="User avatar">
+            </div>
+
+            <!-- User Primary Info (Spaced down to clear the avatar) -->
+            <div class="pt-20">
+                <h1 class="text-2xl font-bold tracking-tight text-gray-900"><%= user.fullname %></h1>
+                <p class="text-sm font-medium text-indigo-600 mt-1"><%= user.username %></p>
+                <p class="text-xs text-gray-500 mt-0.5"><%= user.location || 'No location Set'%></p>
+            </div>
+
+            <!-- Stats Block -->
+            <div class="flex justify-around my-6 py-3 border-y border-gray-100">
+                <div>
+                    <span class="block text-xl font-bold text-gray-800">142</span>
+                    <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider">Posts</span>
+                </div>
+                <div>
+                    <span class="block text-xl font-bold text-gray-800">12.5k</span>
+                    <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider">Followers</span>
+                </div>
+                <div>
+                    <span class="block text-xl font-bold text-gray-800">482</span>
+                    <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider">Following</span>
+                </div>
+            </div>
+
+            <!-- Bio -->
+            <div class="text-left">
+                <h2 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">About Me</h2>
+                <p class="text-sm text-gray-600 leading-relaxed">
+                    Passionate about creating clean, accessible, and user-centric interfaces. Over 6 years of experience collaborating with product teams to build intuitive SaaS products and design systems.
+                </p>
+            </div>
+
+            <!-- Contact & Action Buttons -->
+            <div class="mt-6 flex flex-col sm:flex-row gap-3">
+                <a href="mailto:sarah.j@example.com" 
+                   class="flex-1 text-center bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2.5 px-4 rounded-xl transition duration-200 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 text-sm">
+                    Copy Url
+                </a>
+                <button class="flex-1 bg-white hover:bg-gray-50 text-gray-700 font-medium py-2.5 px-4 rounded-xl border border-gray-300 transition duration-200 text-sm focus:outline-none focus:ring-2 focus:ring-gray-200">
+                    Email
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
